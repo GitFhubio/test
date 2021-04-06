@@ -3,8 +3,9 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <BasicComponent v-for="(name,index) in usernames" :username="name" :key="index" />
-     <div  :style="{ fontSize: postFontSize + 'em' }">
-      <TestComponent v-for="post in posts" :post="post" :key="post.id"  v-on:enlarge-text="postFontSize += 0.1" />
+     <div  :style="{
+     color:postColor }">
+      <TestComponent v-for="post in posts" :post="post" :key="post.id"  v-on:color-text="postColor = 'blue'" v-on:color-text2="postColor = 'orange'"/>
       </div>
   </div>
 </template>
@@ -22,6 +23,7 @@ export default {
   },
   data:function(){
     return {
+      postColor:'red',
     postFontSize: 1,
       usernames:['pippo','pluto','paperino'],
        posts: [
