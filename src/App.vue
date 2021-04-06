@@ -2,17 +2,22 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BasicComponent v-for="(name,index) in usernames" :username="name" :key="index" />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import BasicComponent from './components/BasicComponent.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+    BasicComponent
+  },
+  data:function(){
+    return {usernames:['pippo','pluto','paperino']
+  }}
 }
 </script>
 
