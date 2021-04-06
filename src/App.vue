@@ -3,20 +3,29 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <BasicComponent v-for="(name,index) in usernames" :username="name" :key="index" />
+      <TestComponent v-for="post in posts" :post="post.title" :content="post.content" :key="post.id" />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import BasicComponent from './components/BasicComponent.vue'
+import TestComponent from './components/TestComponent.vue'
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    BasicComponent
+    BasicComponent,
+    TestComponent
   },
   data:function(){
-    return {usernames:['pippo','pluto','paperino']
+    return {
+      usernames:['pippo','pluto','paperino'],
+       posts: [
+      { id: 1, title: 'My journey with Vue',content:'Sono molto infelice'},
+      { id: 2, title: 'Blogging with Vue',content:'Ma proprio tanto tanto' },
+      { id: 3, title: 'Why Vue is so fun',content:'Mi manca Alfredo' }
+    ]
   }}
 }
 </script>
