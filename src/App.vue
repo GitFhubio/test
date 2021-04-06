@@ -3,7 +3,9 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <BasicComponent v-for="(name,index) in usernames" :username="name" :key="index" />
-      <TestComponent v-for="post in posts" :post="post.title" :content="post.content" :key="post.id" />
+     <div  :style="{ fontSize: postFontSize + 'em' }">
+      <TestComponent v-for="post in posts" :post="post" :key="post.id"  v-on:enlarge-text="postFontSize += 0.1" />
+      </div>
   </div>
 </template>
 
@@ -20,6 +22,7 @@ export default {
   },
   data:function(){
     return {
+    postFontSize: 1,
       usernames:['pippo','pluto','paperino'],
        posts: [
       { id: 1, title: 'My journey with Vue',content:'Sono molto infelice'},

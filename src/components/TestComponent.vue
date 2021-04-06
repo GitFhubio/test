@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1> {{post}}</h1>
-    <h2>{{content}}</h2>
+    <h1> {{post.title}}</h1>
+     <button v-on:click="$emit('enlarge-text')">
+        Enlarge text
+      </button>
+          <h2>{{post.content}}</h2>
   </div>
 </template>
 
@@ -9,8 +12,7 @@
 export default {
   name: 'TestComponent',
   props: {
-    post: String,
-    content:String
+    post: Object
   }
 }
 </script>
